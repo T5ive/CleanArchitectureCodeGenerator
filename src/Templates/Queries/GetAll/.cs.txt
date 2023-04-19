@@ -17,12 +17,10 @@ namespace {namespace};
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
-        private readonly IStringLocalizer<GetAll{nameofPlural}QueryHandler> _localizer;
 
         public GetAll{nameofPlural}QueryHandler(
             IApplicationDbContext context,
-            IMapper mapper,
-            IStringLocalizer<GetAll{nameofPlural}QueryHandler> localizer
+            IMapper mapper
             )
         {
             _context = context;

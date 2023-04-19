@@ -22,13 +22,11 @@ public class Export{nameofPlural}QueryHandler :
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
         private readonly IExcelService _excelService;
-        private readonly IStringLocalizer<Export{nameofPlural}QueryHandler> _localizer;
         private readonly {itemname}Dto _dto = new();
         public Export{nameofPlural}QueryHandler(
             IApplicationDbContext context,
             IMapper mapper,
             IExcelService excelService,
-            IStringLocalizer<Export{nameofPlural}QueryHandler> localizer
             )
         {
             _context = context;

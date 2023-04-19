@@ -204,7 +204,7 @@ internal static class TemplateMap
 				switch (property.Type.CodeName)
 				{
 					case "string" when property.Name.Equals("Name", StringComparison.OrdinalIgnoreCase):
-						output.Append($"    public {property.Type.CodeName} {property.Name} {{get;set;}} = String.Empty; \r\n");
+						output.Append($"    public {property.Type.CodeName} {property.Name} {{get;set;}} = string.Empty; \r\n");
 						break;
 					case "string" when !property.Name.Equals("Name", StringComparison.OrdinalIgnoreCase) && !property.Type.IsArray && !property.Type.IsDictionary:
 						output.Append($"    public {property.Type.CodeName}? {property.Name} {{get;set;}} \r\n");
@@ -256,8 +256,8 @@ internal static class TemplateMap
 		{
 			if (property.Name == Primarykey) continue;
 			output.Append(property.Type.CodeName.StartsWith("bool")
-							  ? $"{{ _localizer[_dto.GetMemberDescription(\"{property.Name}\")], (row, item) => item.{property.Name} =Convert.ToBoolean(row[_localizer[_dto.GetMemberDescription(\"{property.Name}\")]]) }}, \r\n"
-							  : $"{{ _localizer[_dto.GetMemberDescription(\"{property.Name}\")], (row, item) => item.{property.Name} = row[_localizer[_dto.GetMemberDescription(\"{property.Name}\")]]?.ToString() }}, \r\n");
+							  ? $"{{ _dto.GetMemberDescription(u => u.{property.Name}), (row, item) => item.{property.Name} = Convert.ToBoolean(row[_dto.GetMemberDescription(u => u.{property.Name})]) }}, \r\n"
+							  : $"{{ _dto.GetMemberDescription(u => u.{property.Name}), (row, item) => item.{property.Name} = row[_dto.GetMemberDescription(u => u.{property.Name})]?.ToString() }}, \r\n");
 		}
 		return output.ToString();
 	}
@@ -267,7 +267,7 @@ internal static class TemplateMap
 		foreach (IntellisenseProperty property in classObject.Properties.Where(x => x.Type.IsKnownType))
 		{
 			if (property.Name == Primarykey) continue;
-			output.Append($"_localizer[_dto.GetMemberDescription(\"{property.Name}\")], \r\n");
+			output.Append($"_dto.GetMemberDescription(u => u.{property.Name}), \r\n");
 		}
 		return output.ToString();
 	}
@@ -276,7 +276,7 @@ internal static class TemplateMap
 		StringBuilder output = new();
 		foreach (IntellisenseProperty property in classObject.Properties.Where(x => x.Type.IsKnownType))
 		{
-			output.Append($"{{_localizer[_dto.GetMemberDescription(\"{property.Name}\")],item => item.{property.Name}}}, \r\n");
+			output.Append($"{{_dto.GetMemberDescription(u => u.{property.Name}) ,item => item.{property.Name}}}, \r\n");
 		}
 		return output.ToString();
 	}

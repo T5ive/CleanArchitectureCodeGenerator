@@ -90,7 +90,7 @@ public static class IntellisenseParser
 							  .FirstOrDefault(c => c.FullName != "System.Object");
 			}
 			catch { /* Silently continue. */ }
-			var baseClasses = new string[] { "BaseAuditableSoftDeleteEntity", "BaseAuditableEntity", "BaseEntity", "IEntity", "ISoftDelete" };
+			var baseClasses = new string[] { "BaseEntity", "BaseAuditableEntity", "BaseSoftDeleteEntity" };
 			if (baseClass != null && baseClasses.Contains(GetClassName(baseClass)))
 			{
 				ProcessClass(cc, baseClass, list, underProcess);

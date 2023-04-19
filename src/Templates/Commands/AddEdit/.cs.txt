@@ -17,10 +17,8 @@ namespace {namespace};
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
-        private readonly IStringLocalizer<AddEdit{itemname}CommandHandler> _localizer;
         public AddEdit{itemname}CommandHandler(
             IApplicationDbContext context,
-            IStringLocalizer<AddEdit{itemname}CommandHandler> localizer,
             IMapper mapper
             )
         {

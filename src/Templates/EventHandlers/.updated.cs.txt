@@ -7,9 +7,7 @@ namespace {namespace};
     {
         private readonly ILogger<{itemname}UpdatedEventHandler> _logger;
 
-        public {itemname}UpdatedEventHandler(
-            ILogger<{itemname}UpdatedEventHandler> logger
-            )
+        public {itemname}UpdatedEventHandler(ILogger<{itemname}UpdatedEventHandler> logger)
         {
             _logger = logger;
         }

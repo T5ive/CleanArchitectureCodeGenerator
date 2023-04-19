@@ -3,7 +3,7 @@
 
 namespace {namespace};
 
-    public class {itemname}CreatedEvent : DomainEvent
+    public class {itemname}CreatedEvent : BaseEvent
     {
         public {itemname}CreatedEvent({itemname} item)
         {

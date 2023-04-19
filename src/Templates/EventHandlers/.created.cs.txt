@@ -7,9 +7,7 @@ public class {itemname}CreatedEventHandler : INotificationHandler<{itemname}Crea
 {
         private readonly ILogger<{itemname}CreatedEventHandler> _logger;
 
-        public {itemname}CreatedEventHandler(
-            ILogger<{itemname}CreatedEventHandler> logger
-            )
+        public {itemname}CreatedEventHandler(ILogger<{itemname}CreatedEventHandler> logger)
         {
             _logger = logger;
         }

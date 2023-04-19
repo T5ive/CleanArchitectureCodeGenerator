@@ -4,7 +4,7 @@
 namespace {namespace};
 
 
-    public class {itemname}UpdatedEvent : DomainEvent
+    public class {itemname}UpdatedEvent : BaseEvent
     {
         public {itemname}UpdatedEvent({itemname} item)
         {

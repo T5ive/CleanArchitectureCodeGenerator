@@ -29,14 +29,12 @@ namespace {namespace};
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
-        private readonly IStringLocalizer<Import{nameofPlural}CommandHandler> _localizer;
         private readonly IExcelService _excelService;
         private readonly {itemname}Dto _dto = new();
 
         public Import{nameofPlural}CommandHandler(
             IApplicationDbContext context,
             IExcelService excelService,
-            IStringLocalizer<Import{nameofPlural}CommandHandler> localizer,
             IMapper mapper
             )
         {
